@@ -1,2 +1,10 @@
 .chef
 .rvmrc
+.rake_test_cache
+
+# vim
+*.sw[a-z]
+
+# emacs
+*~
+
