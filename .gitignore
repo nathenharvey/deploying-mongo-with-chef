@@ -8,3 +8,5 @@
 # emacs
 *~
 
+.vagrant
+cookbooks/mongodb
