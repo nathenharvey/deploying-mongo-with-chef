@@ -12,7 +12,7 @@ Vagrant::Config.run do |config|
       chef.chef_server_url = "https://api.opscode.com/organizations/mdc"
       chef.validation_key_path = ".chef/mdc-validator.pem"
       chef.validation_client_name = "mdc-validator"
-      chef.add_recipe("apt")
+      chef.add_recipe("mongodb::10gen_repo")
       chef.node_name = "mongo01"
     end
   end
@@ -30,7 +30,7 @@ Vagrant::Config.run do |config|
       chef.chef_server_url = "https://api.opscode.com/organizations/mdc"
       chef.validation_key_path = ".chef/mdc-validator.pem"
       chef.validation_client_name = "mdc-validator"
-      chef.add_recipe("apt")
+      chef.add_recipe("mongodb::install")
       chef.node_name = "mongo02"
     end
   end
