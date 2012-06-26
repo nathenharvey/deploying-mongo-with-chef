@@ -6,13 +6,14 @@ Vagrant::Config.run do |config|
       vm.memory_size = 256
     end
     mongo01.vm.forward_port(22, 2717, :auto => true)
+    mongo01.vm.host_name = "mongo01.local"
     mongo01.ssh.timeout = 300
     mongo01.vm.network :hostonly, "192.168.1.10"
     mongo01.vm.provision :chef_client do |chef|
       chef.chef_server_url = "https://api.opscode.com/organizations/mdc"
       chef.validation_key_path = ".chef/mdc-validator.pem"
       chef.validation_client_name = "mdc-validator"
-      chef.add_recipe("mongodb::10gen_repo")
+      chef.add_role("mongodc")
       chef.node_name = "mongo01"
     end
   end
@@ -24,13 +25,14 @@ Vagrant::Config.run do |config|
       vm.memory_size = 256
     end
     mongo02.vm.forward_port(22, 2719, :auto => true)
+    mongo02.vm.host_name = "mongo02.local"
     mongo02.ssh.timeout = 300
     mongo02.vm.network :hostonly, "192.168.1.11"
     mongo02.vm.provision :chef_client do |chef|
       chef.chef_server_url = "https://api.opscode.com/organizations/mdc"
       chef.validation_key_path = ".chef/mdc-validator.pem"
       chef.validation_client_name = "mdc-validator"
-      chef.add_recipe("mongodb::install")
+      chef.add_role("mongodc")
       chef.node_name = "mongo02"
     end
   end
@@ -42,13 +44,14 @@ Vagrant::Config.run do |config|
       vm.memory_size = 256
     end
     arbiter.vm.forward_port(22, 2721, :auto => true)
+    arbiter.vm.host_name = "arbiter.local"
     arbiter.ssh.timeout = 300
     arbiter.vm.network :hostonly, "192.168.1.13"
     arbiter.vm.provision :chef_client do |chef|
       chef.chef_server_url = "https://api.opscode.com/organizations/mdc"
       chef.validation_key_path = ".chef/mdc-validator.pem"
       chef.validation_client_name = "mdc-validator"
-      chef.add_recipe("apt")
+      chef.add_role("mongodc")
       chef.node_name = "arbiter"
     end
   end
