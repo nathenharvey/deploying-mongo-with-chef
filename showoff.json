@@ -1,0 +1,10 @@
+{ 
+  "name": "Deploying MongoDB with Chef",
+  "description" : "Introduction to Chef and a look at how to deploy MongoDB with Chef",
+  "author" : "@nathenharvey",
+  "twitter" : "@nathenharvey",
+  "templates" : {
+    "default" : "style_guide.tpl"
+  },
+  "section" : "presentation"
+}
