@@ -1,0 +1,81 @@
+body {
+  font-family: museo-sans, Tahoma, sans-serif; 
+  color: #54301A;
+  background: #f1e3cd;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: museo-slab;
+}
+
+/*
+* Dirty, dirty hack to turn-off WebFonts when generating a PDF.
+* This works because wkhtmltopdf doesn't respect media queries and will
+* use whatever is last.
+*/
+@media screen and (max-width: 1px) {
+  body,
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: Tahoma, sans-serif; 
+  }
+}
+
+/* Get around style override for margin-top*/
+.content {
+  margin-top: 0 !important;
+}
+
+a:link,
+a:visited {
+  color:#ee3524;
+}
+a:hover {
+  color:#10a6df;
+}
+
+h1 {
+  background: #F37321;
+  color: white;
+  padding: 5px;
+}
+
+.title-slide h1,
+h2,
+h3,
+h4 {
+  color: #F37321;
+}
+
+ol li {
+  margin-bottom: 0.5em;
+}
+
+#footer {
+  display: none;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 50px;
+}
+footer .inky {
+  float: left;
+  display: block;
+  margin-left: 15px;
+}
+footer .twitter {
+  float: right;
+  display: block;
+  margin-right: 15px;
+}
+footer .twitter img {
+  vertical-align: middle;
+}
