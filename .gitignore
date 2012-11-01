@@ -1,5 +1,4 @@
 .chef
-.rvmrc
 .rake_test_cache
 
 # vim
